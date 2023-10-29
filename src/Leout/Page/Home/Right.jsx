@@ -2,6 +2,9 @@
 import { FcGoogle } from 'react-icons/fc';
 import { AiOutlineGithub } from 'react-icons/ai';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import qZoon1 from '../../../assets/Img/qZone1.png'
+import qZoon2 from '../../../assets/Img/qZone2.png'
+import qZoon3 from '../../../assets/Img/qZone3.png'
 const Right = () => {
     return (
         <div>
@@ -36,6 +39,17 @@ const Right = () => {
                 </a>
                 </div>
             </div>
+
+            {/* Q Zone */}
+            <div className='mt-4 bg-[#F3F3F3] '>
+                <h2 className="text-xl font-bold pl-4 pt-4">Q Zone  </h2>
+                <div className='space-y-4 pl-2'>
+                <img src={qZoon1} alt="" />
+                <img src={qZoon2} alt="" />
+                <img src={qZoon3} alt="" />
+                </div>
+            </div>
+
         </div>
     );
 };

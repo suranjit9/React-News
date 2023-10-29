@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import userDefalt from '../../../../public/Img/user.png'
+import userDefalt from '../../../assets/Img/user.png'
 
 
 const Nav = () => {

@@ -1,5 +1,5 @@
 import moment from 'moment/moment';
-import logo from '../../../../public/Img/logo.png'
+import logo from '../../../assets/Img/logo.png'
 
 const Header = () => {
     return (
