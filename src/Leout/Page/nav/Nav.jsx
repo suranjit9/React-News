@@ -1,8 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import userDefalt from '../../../assets/Img/user.png'
+import { useContext } from "react";
+import { Authconstex } from "../../Proveder/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Nav = () => {
+    const {user,logOut} = useContext(Authconstex);
+    const handelSingOut =()=>{
+        logOut();
+        // toast("Wow so easy!")
+        toast("successfully Sign Out!");
+    }
     const naveLink = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/About'>About</NavLink></li>
@@ -33,8 +43,13 @@ const Nav = () => {
                         <img src={userDefalt} />
                     </div>
                 </label>
-                <Link><button className="btn btn-sm">Log IN</button></Link>
+                {
+                    user ? <button onClick={handelSingOut} className="btn btn-sm bg-red-500 text-white hover:text-black">Log Out</button> 
+                    :<Link to='/LogIn'><button className="btn btn-sm">Log IN</button></Link>
+                }
+                
             </div>
+            <ToastContainer />
         </div>
     );
 };
