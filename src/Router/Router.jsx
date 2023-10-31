@@ -10,8 +10,9 @@ import News from "../Leout/Page/SingalNews/News";
 import Protected from "../Leout/Proveder/Protected";
 
 
-import HomeNews from "../Leout/Page/Home/HomeNews";
+
 import Medule from "../Leout/Page/Home/Medule";
+import HomeNews from "../Leout/Page/Home/HomeNews";
 
   const router = createBrowserRouter([
     {
@@ -22,18 +23,19 @@ import Medule from "../Leout/Page/Home/Medule";
             path: '/',
             element:<Home/>,
             // loader: () => fetch('../../public/data/news.json'),
+            children:[
+              {
+                path:'/',
+                element: <Medule></Medule>
+              },
+              {
+                path:'/home/:id',
+                element: <HomeNews/>,
+                loader: () => fetch('../../public/data/news.json'),
+              }
+            ]
         },
-        {
-          path:'/',
-          element:<HomeNews></HomeNews>,
-          children:[
-            {
-              path:'/',
-              element: <Medule></Medule>
-              
-            }
-          ]
-        },
+        
         {
           path:'/news/:id',
           element:<Protected><News></News></Protected>,
