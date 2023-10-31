@@ -4,18 +4,22 @@ import { NavLink } from "react-router-dom";
 
 const LeftBar = () => {
     const [catData, setCatData] = useState([]);
+    
+    
     useEffect(() => {
         fetch('../../../../public/data/categories.json')
             .then(res => res.json())
             .then(data => setCatData(data))
 
-    }, [])
+    }, []);
+    
+
     return (
         <div>
             <h1>All Caterogy</h1>
             <div>
                 {
-                    catData.map(catgory => <NavLink
+                    catData.map(catgory => <NavLink to={``}
                         key={catgory.id}
                         className='block text-2xl ml-3'
                         >

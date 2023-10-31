@@ -9,6 +9,10 @@ import SignUP from "../Leout/Page/Login/SignUp/SignUP";
 import News from "../Leout/Page/SingalNews/News";
 import Protected from "../Leout/Proveder/Protected";
 
+
+import HomeNews from "../Leout/Page/Home/HomeNews";
+import Medule from "../Leout/Page/Home/Medule";
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -17,11 +21,23 @@ import Protected from "../Leout/Proveder/Protected";
         {
             path: '/',
             element:<Home/>,
-            loader: () => fetch('../../public/data/news.json'),
+            // loader: () => fetch('../../public/data/news.json'),
+        },
+        {
+          path:'/',
+          element:<HomeNews></HomeNews>,
+          children:[
+            {
+              path:'/',
+              element: <Medule></Medule>
+              
+            }
+          ]
         },
         {
           path:'/news/:id',
-          element:<Protected><News></News></Protected>
+          element:<Protected><News></News></Protected>,
+          loader: () => fetch('../../public/data/news.json'),
           
         },
         {
@@ -31,7 +47,8 @@ import Protected from "../Leout/Proveder/Protected";
         {
           path: '/SignUP',
           element:<SignUP></SignUP>
-        }
+        },
+       
       ]
     },
   ]);

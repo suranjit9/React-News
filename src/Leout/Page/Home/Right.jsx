@@ -5,22 +5,28 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import qZoon1 from '../../../assets/Img/qZone1.png'
 import qZoon2 from '../../../assets/Img/qZone2.png'
 import qZoon3 from '../../../assets/Img/qZone3.png'
+import { useContext } from 'react';
+import { Authconstex } from '../../Proveder/AuthContext';
 const Right = () => {
+    const {user} = useContext(Authconstex);
     return (
         <div>
-            <div className='space-y-3'>
-                <h2 className="text-xl font-bold">Login with </h2>
-                <div>
-                    <button className="btn btn-outline">
-                        <FcGoogle className='text-xl'></FcGoogle>
-                        Sign In With Google
-                    </button>
-                    <button className="btn btn-outline mt-2">
-                        <AiOutlineGithub className='text-2xl'></AiOutlineGithub>
-                        Sign In With GitHub
-                    </button>
-                </div>
-            </div>
+            {
+               user? '': <div className='space-y-3'>
+               <h2 className="text-xl font-bold">Login with </h2>
+               <div>
+                   <button className="btn btn-outline">
+                       <FcGoogle className='text-xl'></FcGoogle>
+                       Sign In With Google
+                   </button>
+                   <button className="btn btn-outline mt-2">
+                       <AiOutlineGithub className='text-2xl'></AiOutlineGithub>
+                       Sign In With GitHub
+                   </button>
+               </div>
+           </div>
+            }
+            
             {/* Find on */}
             <div className='mt-4'>
                 <h2 className="text-xl font-bold">Find On  </h2>
